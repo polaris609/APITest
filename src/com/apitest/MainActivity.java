@@ -14,7 +14,7 @@ import com.apitest.data.model.TimelineModel;
 public class MainActivity extends Activity {
 
     // optional, use it to define whether we are connected to data interface
-    private boolean mNetworkConnected = false;
+    private boolean mDataServiceConnected = false;
 
     private DataBinder mDataBinder;
 
@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
     private ServiceConnection mConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            mNetworkConnected = true;
+            mDataServiceConnected = true;
             mDataBinder = (DataBinder)iBinder;
 
             // requesting data is done via this call
@@ -67,7 +67,7 @@ public class MainActivity extends Activity {
 
         @Override
         public void onServiceDisconnected(ComponentName componentName) {
-            mNetworkConnected = false;
+            mDataServiceConnected = false;
         }
     };
 
