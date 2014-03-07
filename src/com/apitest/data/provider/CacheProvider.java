@@ -4,6 +4,12 @@ import com.apitest.data.DataListener;
 import com.apitest.data.cache.DataCache;
 import com.apitest.data.model.TimelineModel;
 
+/*
+*   example data provider implementation
+*
+*   this implementation represents obtaining data only from cache
+*
+* */
 public class CacheProvider extends DataProvider {
 
     public CacheProvider(DataCache dataCache) {
@@ -12,8 +18,7 @@ public class CacheProvider extends DataProvider {
 
     @Override
     public void timeline(DataListener<TimelineModel> listener) {
-        TimelineModel model = mDataCache.readTimeline();
-        listener.onDataReceived(model);
+        listener.onDataReceived(mDataCache.readTimeline());
     }
 
 }
